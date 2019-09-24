@@ -1,0 +1,21 @@
+{
+  "name": "colour-contrast-cli",
+  "version": "1.0.0",
+  "description": "Command line tool to check the contrast between two colours against WCAG standards",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "Alex Clapperton",
+    "email": "hi@alexclapperton.co.uk",
+    "url": "https://alexclapperton.co.uk"
+  },
+  "dependencies": {
+    "cli-color": "^1.4.0"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^6.4.0"
+  }
+}

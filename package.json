@@ -4,7 +4,7 @@
   "description": "Command line tool to check the contrast between two colours against WCAG standards",
   "main": "index.js",
   "bin": {
-    "cc": "./index.js"
+    "cccheck": "./index.js"
   },
   "author": {
     "name": "Alex Clapperton",
@@ -20,7 +20,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "cli-color": "^1.4.0"
+    "chalk": "^2.4.2",
+    "chroma-js": "^2.0.6",
+    "import-jsx": "^3.0.0",
+    "ink": "^2.3.0",
+    "pretty-print": "^2.0.0",
+    "react": "^16.9.0",
+    "wordwrap": "^1.0.0"
   },
   "devDependencies": {
     "eslint": "^6.4.0"

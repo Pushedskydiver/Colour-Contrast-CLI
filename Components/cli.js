@@ -2,7 +2,7 @@ const React = require('react');
 const importJsx = require('import-jsx');
 const { render, Box, Color, Text } = require('ink');
 const { isDark, rgbToHsl } = require('../utils');
-const { Dim, Pass, Fail } = importJsx('../Settings/colors');
+const { Dim, Pass, Fail } = importJsx('../settings/colors');
 
 const Section = ({ children }) => (
   <Box marginBottom={1} marginTop={1} flexDirection="column">
@@ -48,24 +48,28 @@ const Cli = ({ contrast, level, background, foreground }) => {
       <Section>
         <Caption>Grades</Caption>
         <Box flexDirection="row">
-          <Box flexDirection="column" alignItems="center" marginRight={3}>
+          <Box flexDirection="column" justifyContent="center" alignItems="center" marginRight={3}>
             <Grade>{level.AALarge}</Grade>
             <Text>AA Large</Text>
+            <Text>Ratio: 3+</Text>
           </Box>
 
-          <Box flexDirection="column" alignItems="center" marginRight={3}>
+          <Box flexDirection="column" justifyContent="center" alignItems="center" marginRight={3}>
             <Grade>{level.AAALarge}</Grade>
             <Text>AAA Large</Text>
+            <Text>Ratio: 4.5+</Text>
           </Box>
 
-          <Box flexDirection="column" alignItems="center" marginRight={3}>
+          <Box flexDirection="column" justifyContent="center" alignItems="center" marginRight={3}>
             <Grade>{level.AA}</Grade>
             <Text>AA Normal</Text>
+            <Text>Ratio: 4.5+</Text>
           </Box>
 
-          <Box flexDirection="column" alignItems="center">
+          <Box flexDirection="column" justifyContent="center" alignItems="center">
             <Grade>{level.AAA}</Grade>
             <Text>AAA Normal</Text>
+            <Text>Ratio: 7+</Text>
           </Box>
         </Box>
       </Section>

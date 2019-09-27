@@ -7,19 +7,17 @@ const { convertColour, getContrast, getLevel, isColour } = require('./utils');
 
 const bgValue = process.argv[2];
 const fgValue = process.argv[3];
-const cli = importJsx('./Components/cli');
+const cli = importJsx('./components/cli');
 
-function printResults(bg, fg, contrast, level) {
-  const background = chroma(bg).hex();
-  const foreground = chroma(fg).hex();
+function printResults(background, foreground, contrast, level) {
   const data = { background, foreground, contrast, level };
 
   return cli(data);
 }
 
 function checkContrast(bg, fg) {
-  const background = chroma(bg).rgb();
-  const foreground = chroma(fg).rgb();
+  const background = chroma(bg).hex();
+  const foreground = chroma(fg).hex();
   const contrast = getContrast(background, foreground).toFixed(2);
   const level = getLevel(contrast);
 

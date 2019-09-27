@@ -11,7 +11,8 @@ const isHex = hex => {
 
 const isRgb = rgb => {
   try {
-    const color = chroma.rgb(rgb);
+    const color = chroma(rgb).rgb();
+    
     return !!color;
   } catch (e) {
     return false;
@@ -49,9 +50,9 @@ const hexToRgb = hex => (isHex(hex) ? chroma(hex).rgb() : null);
 
 const rgbToHex = rgb => (isRgb(rgb) ? chroma.rgb(rgb).hex() : '#808080');
 
-const rgbToHsl = rgb => (isRgb(rgb) ? chroma.rgb(rgb).hsl() : null);
+const rgbToHsl = rgb => chroma(rgb).hsl();
 
-const getContrast = (a, b) => chroma.contrast(rgbToHex(a), rgbToHex(b));
+const getContrast = (a, b) => chroma.contrast(a, b);
 
 const isColour = value => {
   const array = value.split(',');

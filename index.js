@@ -2,16 +2,58 @@
 
 const chroma = require('chroma-js');
 const importJsx = require('import-jsx')
+const meow = require('meow');
+const updateNotifier = require('update-notifier');
 const { convertColour, getContrast, getLevel, isColour } = require('./utils');
 
 const bgValue = process.argv[2];
 const fgValue = process.argv[3];
-const cli = importJsx('./components/cli');
+const contrastCli = importJsx('./components/cli');
+
+const cli = meow(
+  `
+	Usage
+    $ contrast black white
+    
+	Options
+    --ratio, -r Show only contrast ratio
+    --grades, -g Show only WCAG grades
+    
+	Examples
+    $ contrast black white
+    $ contrast '#000000' '#ffffff'
+    $ contrast  0,0,0 255,255,255
+    
+`,
+  {
+    flags: {
+      ratio: {
+        type: 'boolean',
+        default: null,
+        alias: 'f'
+      },
+      grades: {
+        type: 'boolean',
+        default: null,
+        alias: 'g'
+      }
+    }
+  }
+);
+
+const [input] = cli.input;
+
+updateNotifier({
+  pkg: cli.pkg,
+  shouldNotifyInNpmScript: true,
+  isGlobal: cli.pkg.preferGlobal
+}).notify()
 
 function printResults(background, foreground, contrast, level) {
-  const data = { background, foreground, contrast, level };
+  const flags = cli.flags;
+  const data = { background, foreground, contrast, level, flags };
 
-  return cli(data);
+  return contrastCli(data);
 }
 
 function checkContrast(bg, fg) {
@@ -21,6 +63,10 @@ function checkContrast(bg, fg) {
   const level = getLevel(contrast);
 
   printResults(background, foreground, contrast, level);
+}
+
+if (!input && process.stdin.isTTY) {
+  cli.showHelp();
 }
 
 if (isColour(bgValue) && isColour(fgValue)) {

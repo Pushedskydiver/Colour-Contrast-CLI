@@ -31,7 +31,7 @@ const isColour = value => {
     const g = result[1];
     const b = result[2];
 
-    return chroma.valid(r, g, b);
+    return chroma.valid([r, g, b]);
   }
 
   return chroma.valid(value);
@@ -41,12 +41,16 @@ const convertColour = colour => {
   const array = colour.split(',').map(element => parseFloat(element));
   let result = colour;
 
-  if (array.length > 1) {
+  if (array.length === 3) {
     result = [array[0], array[1], array[2]];
   }
 
+  if (array.length === 4) {
+    result = chroma.hsl(array[0], array[1], array[2]);
+  }
+
   return result;
-}
+};
 
 module.exports = {
   convertColour,
@@ -57,4 +61,4 @@ module.exports = {
   toRgb,
   toHex,
   toHsl
-}
+};

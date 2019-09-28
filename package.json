@@ -23,11 +23,13 @@
     "chroma-js": "^2.0.6",
     "import-jsx": "^3.0.0",
     "ink": "^2.3.0",
+    "meow": "^5.0.0",
     "pretty-print": "^2.0.0",
     "react": "^16.9.0",
-    "wordwrap": "^1.0.0"
+    "update-notifier": "^3.0.1"
   },
   "devDependencies": {
-    "eslint": "^6.4.0"
+    "eslint": "^6.4.0",
+    "eslint-config-synacor": "^3.0.5"
   }
 }

@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 const chroma = require('chroma-js');
-const chalk = require('chalk');
 const importJsx = require('import-jsx')
 const { convertColour, getContrast, getLevel, isColour } = require('./utils');
 
@@ -28,7 +27,20 @@ if (isColour(bgValue) && isColour(fgValue)) {
   const background = convertColour(bgValue);
   const foreground = convertColour(fgValue);
 
-  checkContrast(background, foreground);
-} else {
-  console.log(chalk.white.bgRed('Not valid colours'));
+  return checkContrast(background, foreground);
+}
+
+if (!isColour(bgValue) && isColour(fgValue)) {
+  console.error('😱 Oopsy daisy. The first value entered is not a valid colour you silly billy.');
+  process.exit(1);
+}
+
+if (isColour(bgValue) && !isColour(fgValue)) {
+  console.error('😱 Oopsy daisy. The second value entered is not a valid colour you silly billy.');
+  process.exit(1);
+}
+
+if (!isColour(bgValue) && !isColour(fgValue)) {
+  console.error('😱 Oopsy daisy. The values entered are not valid colours you silly billy.');
+  process.exit(1);
 }

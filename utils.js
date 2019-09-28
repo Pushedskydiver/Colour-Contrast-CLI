@@ -1,33 +1,5 @@
 const chroma = require('chroma-js');
 
-const isHex = hex => {
-  try {
-    const color = chroma(hex);
-    return !!color;
-  } catch (err) {
-    return false;
-  }
-};
-
-const isRgb = rgb => {
-  try {
-    const color = chroma(rgb).rgb();
-    
-    return !!color;
-  } catch (e) {
-    return false;
-  }
-};
-
-const isHsl = hsl => {
-  try {
-    const color = chroma.hsl(hsl);
-    return !!color;
-  } catch (e) {
-    return false;
-  }
-};
-
 const getLevel = contrast => {
   if (contrast > 7) {
     return { AALarge: 'Pass', AA: 'Pass', AAALarge: 'Pass', AAA: 'Pass' };
@@ -42,15 +14,11 @@ const getLevel = contrast => {
 
 const isDark = hsl => chroma.hsl(hsl).get('lab.l') < 60;
 
-const hexToHsl = hex => (isHex(hex) ? chroma(hex).hsl() : null);
+const toRgb = value => chroma(value).rgb();
 
-const hslToHex = hsl => (isHsl(hsl) ? chroma.hsl(hsl).hex() : '#808080');
+const toHex = value => chroma(value).hex();
 
-const hexToRgb = hex => (isHex(hex) ? chroma(hex).rgb() : null);
-
-const rgbToHex = rgb => (isRgb(rgb) ? chroma.rgb(rgb).hex() : '#808080');
-
-const rgbToHsl = rgb => chroma(rgb).hsl();
+const toHsl = value => chroma(value).hsl();
 
 const getContrast = (a, b) => chroma.contrast(a, b);
 
@@ -86,12 +54,7 @@ module.exports = {
   getLevel,
   isColour,
   isDark,
-  isHex,
-  isHsl,
-  isRgb,
-  hslToHex,
-  hexToHsl,
-  hexToRgb,
-  rgbToHex,
-  rgbToHsl
+  toRgb,
+  toHex,
+  toHsl
 }

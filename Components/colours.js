@@ -4,7 +4,7 @@ const importJsx = require('import-jsx');
 const { Color } = require('ink');
 const { Table, Th, RowSpan, Tr } = importJsx('./table');
 const { Caption } = importJsx('./caption');
-const { isDark, toHsl, toRgb } = require('../utils');
+const { isDark, toHsl, toRgb } = require('../settings/settings.utils');
 
 const Hex = ({ foreground, contrast, children }) => {
   const hsl = toHsl(children);

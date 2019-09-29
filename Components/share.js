@@ -6,7 +6,7 @@ const { Caption } = importJsx('./caption');
 
 const Share = ({ background, foreground }) => {
   const bg = background.split('#')[1];
-  const fg = foreground.split('#')[1];;
+  const fg = foreground.split('#')[1];
 
   return (
     <Section>

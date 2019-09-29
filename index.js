@@ -4,7 +4,7 @@ const chroma = require('chroma-js');
 const importJsx = require('import-jsx')
 const meow = require('meow');
 const updateNotifier = require('update-notifier');
-const { convertColour, getContrast, getLevel, isColour } = require('./utils');
+const { convertColour, getContrast, getLevel, isColour } = require('./settings/settings.utils');
 
 const bgValue = process.argv[2];
 const fgValue = process.argv[3];

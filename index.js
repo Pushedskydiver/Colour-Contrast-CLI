@@ -36,6 +36,11 @@ const cli = meow(
         type: 'boolean',
         default: null,
         alias: 'g'
+      },
+      version: {
+        type: 'boolean',
+        default: null,
+        alias: 'v'
       }
     }
   }
@@ -67,6 +72,10 @@ function checkContrast(bg, fg) {
 
 if (!input && process.stdin.isTTY) {
   cli.showHelp();
+}
+
+if (cli.flags.v) {
+  cli.showVersion();
 }
 
 if (isColour(bgValue) && isColour(fgValue)) {

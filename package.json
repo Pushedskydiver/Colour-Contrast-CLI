@@ -2,6 +2,7 @@
   "name": "colour-contrast-cli",
   "version": "1.0.0",
   "description": "Command line tool to check the contrast between two colours against WCAG standards",
+  "license": "ISC",
   "main": "index.js",
   "bin": {
     "contrast": "./index.js"
@@ -11,7 +12,6 @@
     "email": "hi@alexclapperton.co.uk",
     "url": "https://alexclapperton.co.uk"
   },
-  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "https://github.com/Pushedskydiver/Colour-Contrast-CLI"

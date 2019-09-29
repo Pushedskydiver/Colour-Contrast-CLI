@@ -23,7 +23,7 @@ const Rgb = ({ foreground, contrast, children }) => {
 
 const Hsl = ({ foreground, contrast, children }) => {
   const hsl = toHsl(children).map(val => val % 1 !== 0 ? val.toFixed(2) : val);
-  const color = contrast < 3 ? isDark(hsl) ? '#ffffff' : '#000000' : foreground;
+  const color = contrast < 3 ? isDark(toHsl(children)) ? '#ffffff' : '#000000' : foreground;
 
   const h = Math.round(hsl[0]);
   const s = hsl[1] * 100;

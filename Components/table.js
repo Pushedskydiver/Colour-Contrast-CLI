@@ -11,28 +11,32 @@ const Tr = ({ children, marginTop, marginBottom }) => {
   const columns = [
     {
       width: 12,
-      margin: 2
-    },
-    {
-      width: 10,
-      margin: 2
+      align: 'flex-start'
     },
     {
       width: 14,
-      margin: 2
+      align: 'center'
     },
     {
-      width: 12,
-      margin: 0
+      width: 16,
+      align: 'center'
+    },
+    {
+      width: 14,
+      align: 'center'
     }
   ];
 
   return (
-    <Box width={70} marginTop={marginTop} marginBottom={marginBottom}>
+    <Box width={56} marginTop={marginTop} marginBottom={marginBottom}>
       {React.Children.map(children, (child, index) => {
-        const { width, margin, grow } = columns[index];
+        const { width, align, grow } = columns[index];
 
-        return <Box width={width} marginRight={margin}>{child}</Box>;
+        return (
+          <Box minWidth={width} flexDirection="column" alignItems={align}>
+            {child}
+          </Box>
+        );
       })}
     </Box>
   )

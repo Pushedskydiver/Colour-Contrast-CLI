@@ -14,16 +14,16 @@ const cli = meow(
   `
 	Usage
     $ contrast black white
-    
+
 	Options
     --ratio, -r Show only contrast ratio
     --grades, -g Show only WCAG grades
-    
+
 	Examples
     $ contrast black white
     $ contrast '#000000' '#ffffff'
     $ contrast  0,0,0 255,255,255
-    
+
 `,
   {
     flags: {
@@ -86,16 +86,16 @@ if (isColour(bgValue) && isColour(fgValue)) {
 }
 
 if (!isColour(bgValue) && isColour(fgValue)) {
-  console.error('😱 Oopsy daisy. The first value entered is not a valid colour you silly billy.');
+  console.error('😱 Awww nah. The first value entered is not a valid colour.');
   process.exit(1);
 }
 
 if (isColour(bgValue) && !isColour(fgValue)) {
-  console.error('😱 Oopsy daisy. The second value entered is not a valid colour you silly billy.');
+  console.error('😱 Aww nah. The second value entered is not a valid colour.');
   process.exit(1);
 }
 
 if (!isColour(bgValue) && !isColour(fgValue)) {
-  console.error('😱 Oopsy daisy. The values entered are not valid colours you silly billy.');
+  console.error('😱 Aww nah. The values entered are not valid colours you.');
   process.exit(1);
 }

@@ -30,7 +30,7 @@ const Tr = ({ children, marginTop, marginBottom }) => {
   return (
     <Box width={56} marginTop={marginTop} marginBottom={marginBottom}>
       {React.Children.map(children, (child, index) => {
-        const { width, align, grow } = columns[index];
+        const { width, align } = columns[index];
 
         return (
           <Box minWidth={width} flexDirection="column" alignItems={align}>
@@ -39,7 +39,7 @@ const Tr = ({ children, marginTop, marginBottom }) => {
         );
       })}
     </Box>
-  )
+  );
 };
 
 exports.Table = Table;

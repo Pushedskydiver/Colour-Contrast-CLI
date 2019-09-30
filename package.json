@@ -1,6 +1,6 @@
 {
   "name": "colour-contrast-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Command line tool to check the contrast between two colours against WCAG standards",
   "license": "ISC",
   "main": "index.js",

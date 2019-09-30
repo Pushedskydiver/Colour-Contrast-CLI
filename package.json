@@ -16,6 +16,19 @@
     "type": "git",
     "url": "https://github.com/Pushedskydiver/Colour-Contrast-CLI"
   },
+  "keywords": [
+    "accessibility",
+    "colors",
+    "contrast",
+    "wcag",
+    "cli",
+    "react",
+    "colours",
+    "cli-app",
+    "color",
+    "colour",
+    "checker"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -29,17 +29,14 @@ const cli = meow(
     flags: {
       ratio: {
         type: 'boolean',
-        default: null,
         alias: 'f'
       },
       grades: {
         type: 'boolean',
-        default: null,
         alias: 'g'
       },
       version: {
         type: 'boolean',
-        default: null,
         alias: 'v'
       }
     }

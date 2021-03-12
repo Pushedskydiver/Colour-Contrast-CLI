@@ -33,13 +33,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "chroma-js": "^2.0.6",
-    "import-jsx": "^3.0.0",
-    "ink": "^2.3.0",
-    "meow": "^5.0.0",
+    "chroma-js": "^2.1.1",
+    "import-jsx": "^4.0.0",
+    "ink": "^3.0.8",
+    "meow": "^9.0.0",
     "pretty-print": "^2.0.0",
     "react": "^16.9.0",
-    "update-notifier": "^3.0.1"
+    "update-notifier": "^5.1.0"
   },
   "devDependencies": {
     "eslint": "^6.4.0",

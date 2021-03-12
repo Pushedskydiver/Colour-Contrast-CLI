@@ -1,7 +1,7 @@
 
 const React = require('react');
 const importJsx = require('import-jsx');
-const { Color } = require('ink');
+const { Text } = require('ink');
 const { Table, Th, RowSpan, Tr } = importJsx('./table');
 const { Caption } = importJsx('./caption');
 const { isDark, toHsl, toRgb } = require('../settings/settings.utils');
@@ -10,7 +10,7 @@ const Hex = ({ foreground, contrast, children }) => {
   const hsl = toHsl(children);
   const color = contrast < 3 ? isDark(hsl) ? '#ffffff' : '#000000' : foreground;
 
-  return <Color hex={color} bgHex={children}> {children} </Color>;
+  return <Text color={color} bgHex={children}> {children} </Text>;
 };
 
 const Rgb = ({ foreground, contrast, children }) => {
@@ -18,7 +18,7 @@ const Rgb = ({ foreground, contrast, children }) => {
   const rgb = toRgb(children);
   const color = contrast < 3 ? isDark(hsl) ? '#ffffff' : '#000000' : foreground;
 
-  return <Color hex={color} bgHex={children}> {rgb.join(',')} </Color>;
+  return <Text color={color} backgroundColor={children}> {rgb.join(',')} </Text>;
 };
 
 const Hsl = ({ foreground, contrast, children }) => {
@@ -29,7 +29,7 @@ const Hsl = ({ foreground, contrast, children }) => {
   const s = Math.round(hsl[1] * 100);
   const l = Math.round(hsl[2] * 100);
 
-  return <Color hex={color} bgHex={children}> {`${h},${s},${l}`} </Color>;
+  return <Text color={color} backgroundColor={children}> {`${h},${s},${l}`} </Text>;
 };
 
 const Colours = ({ contrast, background, foreground }) => (

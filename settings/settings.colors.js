@@ -1,9 +1,9 @@
 const React = require('react');
-const { Color } = require('ink');
+const { Text } = require('ink');
 
-const Pass = ({ children }) => <Color hex="#000" bgHex="#9eeb7a" bold>{children}</Color>;
-const Fail = ({ children }) => <Color hex="#000" bgHex="#ff5f60" bold>{children}</Color>;
-const Dim = ({ children }) => <Color dim>{children}</Color>;
+const Pass = ({ children }) => <Text color="#000" backgroundColor="#9eeb7a" bold>{children}</Text>;
+const Fail = ({ children }) => <Text color="#000" backgroundColor="#ff5f60" bold>{children}</Text>;
+const Dim = ({ children }) => <Text dim>{children}</Text>;
 
 exports.Pass = Pass;
 exports.Fail = Fail;
